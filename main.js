@@ -91,7 +91,25 @@ for (const 円行 of 円行List) {
 const 円行比率_基準内の最大値 = Math.max(...円行比率_基準);
 const 世界地図のコピー時の文字数 = 円行比率_基準内の最大値 * 円行比率_基準.length;
 
+let 世界地図基準列 = 0;
+const 世界地図基準列_最大 = 世界地図行List[0].length;
 
+setInterval(() => {
+    描画();
+    世界地図基準列 = (世界地図基準列 + 世界地図基準列_最大 - 1) % 世界地図基準列_最大;
+}, 80);
 
+// 描画();
+
+function 描画() {
+    console.clear();
+    for (let i = 0; i < 世界地図行List.length; i++) {
+        const 世界地図行 = 世界地図行List[i];
+        const 円行比率 = 円行比率List[i];
+        const 世界地図行の一部 = (世界地図行 + 世界地図行).slice(世界地図基準列, 世界地図基準列 + 世界地図のコピー時の文字数);
+
+        console.log(世界地図行の一部);
+    }
+}
 
 
